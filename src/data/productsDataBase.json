@@ -1,12 +1,12 @@
 [
  {
   "id": 1,
+  "image": "img-cafetera-moulinex.jpg",
   "name": "Cafeteira Moulinex Dolce Gusto Edited",
-  "price": 100,
-  "discount": 50,
-  "category": "visited",
-  "description": "Máquina de café Dolce Gusto Lumio. A máquina de café Dolce Gusto Lumio é uma variedade automática que chegou com um design radical a que estamos acostumados da Dolce Gusto, e neste post contamos tudo o que você precisa saber sobre ela, desde suas características técnicas até a qualidade das cápsulas ou preço.",
-  "image": "img-cafetera-moulinex.jpg"
+  "price": "100",
+  "discount": "50",
+  "category": "",
+  "description": "Máquina de café Dolce Gusto Lumio. A máquina de café Dolce Gusto Lumio é uma variedade automática que chegou com um super design radical a que estamos acostumados da Dolce Gusto, e neste post contamos tudo o que você precisa saber sobre ela, desde suas características técnicas até a qualidade das cápsulas ou preço."
  },
  {
   "id": 2,
@@ -133,5 +133,14 @@
   "category": "in-sale",
   "description": "Deixe a música de dança ganhar vida com o EXTRA BASS™ Animar o ambiente com o EXTRA BASS™1. Um radiador passivo trabalha com o alto-falante mono para aumentar os tons graves e melhorar os graves, apesar do tamanho compacto.",
   "image": "img-parlante-sony.jpg"
+ },
+ {
+  "id": 17,
+  "image": "image-1665533817569.webp",
+  "name": "Maquina de Café Lumio Automatica Branca 110V",
+  "price": "499990",
+  "discount": "0",
+  "category": "visited",
+  "description": "Conheça uma máquina de café minimalista mas com o máximo de possibilidades. Crie facilmente uma variedade de bebidas com a qualidade das cafeterias no conforto de sua casa."
  }
 ]

@@ -32,10 +32,16 @@ const controller = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		let image;
+		if (req.files[0] != undefined){
+			image = req.files[0].filename
+		}else{
+			image = 'default-image.png'
+		}
 		let newProduct = {
 			id: products[products.length - 1].id + 1,
-			...req.body,
-			image: 'default-image.png'
+			image: image,
+			...req.body,			
 		}
 		products.push(newProduct)
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '))
@@ -53,10 +59,17 @@ const controller = {
 		let id = req.params.id;
 		let productToEdit = products.find(product => product.id == id)
 
+		let image;
+		if (req.files[0] != undefined){
+			image = req.files[0].filename
+		}else{
+			image = productToEdit.image
+		}
+
 		productToEdit = {
 			id: productToEdit.id,
-			...req.body,
-			image: productToEdit.image,
+			image: image,
+			...req.body,			
 		};
 		
 		let newProducts = products.map(product => {
