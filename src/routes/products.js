@@ -7,6 +7,10 @@ const path  = require('path');
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
+// ************ Middleware Require ************
+
+const verifyUserLogged = require('../middlewares/verifyUserLogged')
+
 // ************ Multer ************
 var storage = multer.diskStorage({
     destination: function(req, file, cb){
@@ -23,7 +27,7 @@ const upload = multer({storage: storage})
 router.get('/', productsController.index); 
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/create/', productsController.create); 
+router.get('/create/', verifyUserLogged, productsController.create); 
 router.post('/', upload.any(), productsController.store); 
 
 
