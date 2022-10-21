@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<!-- Include Head -->
+<%- include('partials/head', {title: 'Login'}) %>
+<body>
+	<!-- Header -->
+	<%- include('partials/headerNavbar') %>
+	<!-- /Header -->
+
+	<% if(typeof errors!='undefined'){ %>
+		<ul>
+			<% for (let i=0; i < errors.length;i++){ %>
+					<li style="color: red"><%= errors[i].msg %>
+			<% } %>
+		</ul>
+	<% } %>
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Login</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/login" method="POST" enctype="multipart/form-data">
+				<div class="row product-detail">
+					<div class="col-12 col-md-6">
+						<label for="user" class="form-label">Usuario:</label>
+						<input type="text" id="user" name="usuario" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="password" class="form-label">Senha:</label>
+						<input type="text" id="password" name="password" class="form-input">
+					</div>					
+					<div class="col-12">
+						<button type="submit" class="buy-now-button">Entrar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<!-- /todos os produtos -->
+
+	<!-- footer -->
+	<%- include('partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

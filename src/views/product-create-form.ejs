@@ -7,6 +7,13 @@
 	<%- include('partials/headerNavbar') %>
 	<!-- /Header -->
 
+	<% if(typeof errors!='undefined'){ %>
+		<ul>
+			<% for (let i=0; i < errors.length;i++){ %>
+					<li style="color: red"><%= errors[i].msg %></li>
+			<% } %>
+		</ul>
+	<% } %>
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">

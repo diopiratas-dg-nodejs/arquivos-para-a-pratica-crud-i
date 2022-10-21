@@ -142,5 +142,14 @@
   "discount": "0",
   "category": "visited",
   "description": "Conheça uma máquina de café minimalista mas com o máximo de possibilidades. Crie facilmente uma variedade de bebidas com a qualidade das cafeterias no conforto de sua casa."
+ },
+ {
+  "id": 18,
+  "image": "image-1666307682680.webp",
+  "name": "Chinelos Reebok",
+  "price": "30",
+  "discount": "0",
+  "category": "",
+  "description": "Novo Chinelo Reebok top"
  }
 ]

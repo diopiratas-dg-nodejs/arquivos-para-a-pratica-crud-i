@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const {validationResult} = require('express-validator')
 
 const productsFilePath = path.join(__dirname, '../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -26,12 +27,17 @@ const controller = {
 	},
 
 	// Create - Form to create
-	create: (req, res) => {
+	create: (req, res) => {		
 		res.render('product-create-form')
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
+		let errors = validationResult(req)
+		if (!errors.isEmpty()){
+			return res.render('product-create-form', {errors: errors.errors})
+		}
+
 		let image;
 		if (req.files[0] != undefined){
 			image = req.files[0].filename

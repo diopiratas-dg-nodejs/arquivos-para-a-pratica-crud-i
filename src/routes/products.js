@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path  = require('path');
+const {body, check} = require('express-validator')
 
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
@@ -28,7 +29,18 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', verifyUserLogged, productsController.create); 
-router.post('/', upload.any(), productsController.store); 
+router.post('/', upload.any(),[
+    check('name').isEmpty().withMessage('Você deve digitar um nome para o produto'),
+    check('category').isEmpty().withMessage('Você deve selecionar uma categoria para o produto'),
+    check('description').isLength({min: 1}).withMessage('Você deve escrever uma descrição para o produto'),
+    body('price').custom(value => {
+        if (isNaN(value)){
+            throw new Error('Você deve digitar um valor númerico no preço')
+        }else{
+            return true;
+        }
+    })
+], productsController.store); 
 
 
 /*** GET ONE PRODUCT ***/ 
