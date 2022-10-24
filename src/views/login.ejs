@@ -10,10 +10,11 @@
 	<% if(typeof errors!='undefined'){ %>
 		<ul>
 			<% for (let i=0; i < errors.length;i++){ %>
-					<li style="color: red"><%= errors[i].msg %>
+					<li style="color: red"><%= errors[i] %>
 			<% } %>
 		</ul>
 	<% } %>
+		
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
@@ -21,15 +22,15 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/login" method="POST" enctype="multipart/form-data">
+			<form action="/login" method="POST">
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="user" class="form-label">Usuario:</label>
-						<input type="text" id="user" name="usuario" class="form-input">
+						<input type="text" name="user" class="form-input">
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="password" class="form-label">Senha:</label>
-						<input type="text" id="password" name="password" class="form-input">
+						<input type="password" name="password" class="form-input">
 					</div>					
 					<div class="col-12">
 						<button type="submit" class="buy-now-button">Entrar</button>
@@ -39,7 +40,6 @@
 		</div>
 
 	</div>
-	<!-- /todos os produtos -->
 
 	<!-- footer -->
 	<%- include('partials/footer') %>

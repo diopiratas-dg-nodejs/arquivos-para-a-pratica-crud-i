@@ -17,7 +17,10 @@
 			<div class="col-12 col-md-4">
 				<a href="#" class="main-header_credit-link">
 					<i class="fas fa-hand-holding-usd"></i>
-					Compre em parcelas e sem cartão de crédito
+					<% if(typeof userLogged !='undefined'){ %>
+						<p>Olá <%= userLogged %>,</p>
+				  <% } %>
+				  Compre em parcelas e sem cartão de crédito
 				</a>
 			</div>
 		</div>

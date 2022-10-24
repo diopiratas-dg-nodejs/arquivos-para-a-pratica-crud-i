@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const logger = require('morgan');
 const path = require('path');
+const session = require('express-session');
 const methodOverride =  require('method-override'); // Passe para poder usar os métodos PUT e DELETE
 const logMiddleware = require('./middlewares/log')
 
@@ -18,6 +19,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(logMiddleware)
 app.use(methodOverride('_method')); // Para poder passar o method="POST" no formulário por PUT e DELETE
+app.use(session({secret: "DH Commerce"})) // Indicação de uso de session a nivel de aplicação
+app.use(function(req, res, next) {
+  res.locals.userLogged = req.session.userLogged;
+  next();
+});
 
 // ************ Template Engine - (don't touch) ************
 app.set('view engine', 'ejs');
